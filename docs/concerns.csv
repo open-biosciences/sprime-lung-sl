@@ -7,11 +7,11 @@ C5,R1.2;R2.3,Missing data / IC50 52%,high,resolved,docs/METHODS_CANONICAL.md,IC5
 C6,R1.4,Statistical rigor,high,done,data/derived/psprime_by_genotype.csv,Bootstrap CIs; n-tables; FDR run not gated
 C7,R2.2,Confounders,high,deferred-limitation,docs/METHODS_CANONICAL.md,Documented Study limitation; future multivariable work
 C8,R1.5;R2.1,Benchmark vs AUC/EC50,high,done,data/derived/metric_correlations.csv,Correlation analysis; AUC collapses AUC>1
-C9,R1.7,Independent validation,high,done,data/derived/rnai_validation.csv; concordance_summary.csv; data/reference/validated_sl_reference.csv,"DEMETER2 RNAi + 36-compound concordance + RAS/MEK; grounded 2026-07-05 (PubMed/ORCS/ChEMBL): Oser AURKB / Gong AURKA print 2019 confirmed; PLK1/AURKB/CHEK1 common-essential -> report RB1-vs-WT differential, lead with PARP1 (context-selective)"
+C9,R1.7,Independent validation,high,done,data/derived/rnai_validation.csv; concordance_summary.csv; data/reference/validated_sl_reference.csv; src/confirm_claims.py; docs/REPRODUCIBILITY.md; data/derived/claim_confirmations.csv,"DEMETER2 RNAi + 36-compound concordance + RAS/MEK; citations verified (Oser AURKB / Gong AURKA, print 2019). Reconciled 2026-07-05 vs on-disk DepMap (docs/REPRODUCIBILITY.md): AURKB selective = LEAD example; PLK1/CHEK1 common-essential (report RB1-vs-WT differential); PARP1 retained on PARP-trapping (LoF screens understate it)"
 C10,R1.6,Overstated claims,med,in-progress,manuscript,Candidate-level language; Study limitations
-C11,R1.8;R2.4,Genotype definition,high,done,config/definitions.yaml; data/derived/genotype_counts.csv,AF-sum>0.95; TP53 DN = limitation
+C11,R1.8;R2.4,Genotype definition,high,done,config/definitions.yaml; data/derived/genotype_counts.csv; src/check_release.py,"AF-sum>0.95; TP53 DN = limitation; mutations release resolved to DepMap 24Q2 (evidence: file dates + Model.csv 1959 models); check_release.py reproduces the 7 named RB1 lines once the matrix lands"
 C12,R1.9;R2.7,Figure errors,med,in-progress,src/figures.py,Fig 1/4/5 fixes; captions
-C13,R1.11,Supp tables + data/code release,med,in-progress,this repo,Standardize headers; Zenodo DOI
+C13,R1.11,Supp tables + data/code release,med,in-progress,this repo; src/run_pipeline.py; src/check_release.py; src/confirm_claims.py; DATA_AVAILABILITY.md,"Reproducible pipeline (definitions -> data/derived) + release reconciliation + claim-confirmation queries built in; standardize headers; Zenodo DOI on tagged release"
 C14,R1.10,Results organization,med,in-progress,manuscript,Ranked tables + move lists to supp
 C15,R1.4;R2.8,Sample sizes,med,done,data/derived/genotype_counts.csv,Per-genotype n (RB1 7/75)
 C16,R2(intro),Introduction/literature,med,in-progress,manuscript,SL literature + antecedent
