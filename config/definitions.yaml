@@ -33,6 +33,18 @@ genotype:
   unit_of_analysis: "single gene"        # per tissue + gene filter
   genes: [PTEN, CDKN2A, RB1, TP53]
 
+# Paper-reported cohorts — used to reconcile the DepMap mutations release (24Q2 vs 24Q4) and as a
+# drift-catcher for the genotype rule. src/check_release.py asserts these against a matrix on disk:
+# the release that reproduces the named RB1 cohort (all value==mutant_value) and the counts is the one used.
+expected_cohorts:
+  RB1:
+    gene_symbol: RB1
+    gene_entrez: 5925
+    tissue: lung
+    n_mutant: 7                          # paper reports 7 RB1-mutant lung lines
+    n_wild_type: 75                      # and 75 WT (C15 / worked example 3)
+    mutant_lines: [NCIH2228, HCC44, DMS273, NCIH446, T3M10, NCIH1048, HCC15]
+
 data_sources:
   prism: { release: "PRISM Repurposing 19Q4", file: "secondary-screen-dose-response-curve-parameters.csv (SSDRC)" }
   # ⚠ RECONCILE: manuscript Data Availability says "24Q4"; flow diagram + this config say 24Q2.
