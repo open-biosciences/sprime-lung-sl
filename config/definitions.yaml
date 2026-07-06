@@ -47,8 +47,9 @@ expected_cohorts:
 
 data_sources:
   prism: { release: "PRISM Repurposing 19Q4", file: "secondary-screen-dose-response-curve-parameters.csv (SSDRC)" }
-  # ⚠ RECONCILE: manuscript Data Availability says "24Q4"; flow diagram + this config say 24Q2.
-  # Confirm which release was actually used and align manuscript/DATA_AVAILABILITY/data-raw README/this file.
+  # Release = 24Q2 (resolved 2026-07-05): on-disk working files date Oct-Nov 2024 (before 24Q4's 2024-12-10
+  # release) and the local DepMap Model.csv has 1,959 models (consistent with 24Q2); flow diagram agrees.
+  # The manuscript must be corrected to 24Q2 (its ref [24] cites 23Q4; some materials said 24Q4 — both wrong).
   mutations: { release: "DepMap Public 24Q2", file: "OmicsSomaticMutationsMatrixDamaging.csv" }
   rnai_validation: { source: "DEMETER2" }
   screens: { base: "HTS002", overlay: "MTS010", quality_flag: "passed_str_profiling == TRUE" }

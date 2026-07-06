@@ -14,7 +14,7 @@ files themselves (redistributed per DepMap terms and kept out of version control
 | Input | Release | File | Source / DOI |
 |---|---|---|---|
 | Drug-response 4PL parameters | **PRISM Repurposing 19Q4** (secondary screen) | `secondary-screen-dose-response-curve-parameters.csv` | DepMap portal <https://depmap.org/portal/download/all>; method Corsello et al. 2020, *Nat Cancer*, PMID 32613204, doi:10.1038/s43018-019-0018-6; DepMap 19Q4 Public figshare doi:10.6084/m9.figshare.11384241.v2 |
-| Damaging-mutation matrix | **DepMap Public 24Q2** *(see discrepancy note)* | `OmicsSomaticMutationsMatrixDamaging.csv` | DepMap portal <https://depmap.org/portal/download/all> |
+| Damaging-mutation matrix | **DepMap Public 24Q2** *(resolved — see below)* | `OmicsSomaticMutationsMatrixDamaging.csv` | DepMap portal <https://depmap.org/portal/download/all> |
 | Model / cell-line metadata | DepMap (matching release) | model file / `ccle_tissue`, lineage | DepMap portal |
 | RNAi gene-dependency (validation) | **DEMETER2** (combined Broad/Novartis/Marcotte) | combined RNAi dependency | DepMap portal / Broad DEMETER2 |
 | Screen selection & QC | HTS002 (base) + MTS010 (overlay of corrected values); rows filtered on `passed_str_profiling == TRUE` | — | documented in Methods / preprocessing flow (Concept Figure A/B) |
@@ -28,12 +28,18 @@ files themselves (redistributed per DepMap terms and kept out of version control
 ## Methodological antecedent (peer-reviewed)
 - Zamora et al., *Cancers* 2023, 15(24):5811, doi:10.3390/cancers15245811 (log-based predecessor of S′).
 
-## ⚠ Mutation-matrix release: 24Q2 vs 24Q4 — resolve by checksum
-The submitted manuscript's Data Availability statement cites the damaging-mutation matrix from the
-**"24Q4 Releases,"** while the R1.8 preprocessing flow (Concept Figure A/B) and `config/definitions.yaml`
-cite **DepMap Public 24Q2**. The file `OmicsSomaticMutationsMatrixDamaging.csv` exists in **both**
-releases, but they are **different files** (24Q4 added cell lines), so the actual downloaded copy is
-self-identifying — no need to rely on memory:
+## Mutation-matrix release: RESOLVED — DepMap Public 24Q2
+**The release used is 24Q2** (resolved 2026-07-05). Evidence, without needing the matrix itself:
+- The analysis working files on disk (`prism_mts010_filtered_data.csv`, `Model.csv`, CRISPR exports) date
+  **Oct–Nov 2024** — *before* DepMap 24Q4 was released (**2024-12-10**), so 24Q4 could not have been used.
+- The local DepMap `Model.csv` has **1,959 models**, consistent with **24Q2** (24Q3/24Q4 have more; 23Q4 fewer).
+- The R1.8 preprocessing flow (Concept Figure A/B) and `config/definitions.yaml` already say 24Q2.
+
+The **manuscript must be corrected to 24Q2**: its reference **[24] cites "DepMap 23Q4 Public"** and the
+Data Availability statement names no quarter (some materials also said "24Q4") — all should read 24Q2.
+
+If the matrix ever needs a *checksum-level* confirmation, the two releases are different files and
+self-identifying (`certutil -hashfile <file> MD5`, or size alone):
 
 | Release | Figshare | Size (bytes) | MD5 |
 |---|---|---|---|
@@ -52,11 +58,10 @@ is the one used. With both matrices present, `--compare` diffs the analyzed-gene
 discrepancy is cosmetic (fix the manuscript string only); different ⇒ regenerate the counts on the
 confirmed release. Expectations are pinned in `config/definitions.yaml → expected_cohorts`.
 
-Then set that release consistently across: the manuscript Data Availability statement, this file,
-`data/raw/README.md`, and `config/definitions.yaml`. (Because the two versions differ in cell-line
-coverage, if it turns out 24Q4 was used, the per-genotype n and counts should be regenerated on 24Q4.)
-*Verified against the DepMap Figshare+ manifests, 2026-07-05.* (PRISM Repurposing 19Q4 is consistent
-across all sources; no conflict there.)
+This repo (this file, `data/raw/README.md`, `config/definitions.yaml`) is now consistent on **24Q2**;
+the manuscript Data Availability statement and ref [24] remain to be corrected to 24Q2 by the authors.
+*Checksums verified against the DepMap Figshare+ manifests, 2026-07-05.* (PRISM Repurposing 19Q4 is
+consistent across all sources; no conflict there.)
 
 ---
 This repository is the processed-data-and-code deposit requested by Reviewer 1 (comment 11) and supports
