@@ -35,6 +35,8 @@ genotype:
 
 data_sources:
   prism: { release: "PRISM Repurposing 19Q4", file: "secondary-screen-dose-response-curve-parameters.csv (SSDRC)" }
+  # ⚠ RECONCILE: manuscript Data Availability says "24Q4"; flow diagram + this config say 24Q2.
+  # Confirm which release was actually used and align manuscript/DATA_AVAILABILITY/data-raw README/this file.
   mutations: { release: "DepMap Public 24Q2", file: "OmicsSomaticMutationsMatrixDamaging.csv" }
   rnai_validation: { source: "DEMETER2" }
   screens: { base: "HTS002", overlay: "MTS010", quality_flag: "passed_str_profiling == TRUE" }

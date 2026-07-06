@@ -1,12 +1,20 @@
-# data/raw/ — canonical inputs (hand-managed)
+# data/raw/ — canonical inputs (hand-managed, not committed)
 
-Large public files are **not committed**; place them here locally (see `.gitignore`) and record
-provenance in DATA_AVAILABILITY.md. Expected files & key columns:
+The **sources are fully specified** (release + exact filename + download location below and in
+`DATA_AVAILABILITY.md`). These large public files are gitignored — download them from the DepMap portal
+into this folder locally, then `python src/run_pipeline.py` computes everything into `data/derived/`.
+Downloading them is the only remaining step; nothing about the data is unknown or unspecified.
 
-| file | source | key columns |
-|---|---|---|
-| `prism_ssdrc.csv` | PRISM Repurposing 19Q4 | depmap_id, compound, upper_asymptote, lower_asymptote, hill, ec50, auc, ic50, passed_str_profiling, screen_id |
-| `omics_damaging_mutations.csv` | DepMap Public 24Q2 | ModelID (ACH), gene, damaging_value(0/1/2) |
-| `model_metadata.csv` | DepMap | ModelID (ACH), ccle_tissue, lineage |
-| `demeter2_rnai.csv` | DEMETER2 | ModelID, gene, dependency_score |
-| `validated_sl_reference.csv` | curated (this study) | gene, compound, moa, interaction, source_pmid |
+| local file | release | portal file to download | where | key columns |
+|---|---|---|---|---|
+| `prism_ssdrc.csv` | PRISM Repurposing **19Q4** (secondary) | `secondary-screen-dose-response-curve-parameters.csv` | depmap.org/portal/download/all (19Q4) | depmap_id, compound (broad_id/name), upper_asymptote, lower_asymptote, hill_slope, ec50, auc, ic50, passed_str_profiling, screen_id (HTS002/MTS010) |
+| `omics_damaging_mutations.csv` | DepMap Public **24Q2** ⚠ (manuscript says 24Q4 — reconcile) | `OmicsSomaticMutationsMatrixDamaging.csv` | depmap.org/portal/download/all (24Q2) | ModelID (ACH-######), gene, damaging value {0,1,2} |
+| `model_metadata.csv` | DepMap (matching release) | model / sample-info table | depmap.org/portal | ModelID (ACH), ccle_tissue, lineage |
+| `demeter2_rnai.csv` | DEMETER2 (combined RNAi) | combined RNAi gene-dependency | depmap.org/portal (DEMETER2) | ModelID, gene, dependency_score |
+
+Curated reference tables that ARE committed live in `../reference/` (e.g. `validated_sl_reference.csv`) —
+do not put those here.
+
+**Provenance mirrors the manuscript's Data Availability statement** (portal, PRISM 19Q4 SSDRC, damaging
+mutations matrix) and Corsello et al. 2020 (PMID 32613204) for PRISM methodology. See
+`DATA_AVAILABILITY.md` for DOIs and the 24Q2-vs-24Q4 discrepancy note.
