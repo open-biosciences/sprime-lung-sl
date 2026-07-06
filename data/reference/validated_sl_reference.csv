@@ -1,0 +1,9 @@
+genotype,target_gene,target_entrez,example_compound,compound_chembl_id,compound_moa,compound_max_phase,orcs_hit_screens,essentiality_class,sl_evidence_pmid,sl_evidence_doi,context,grounded,notes
+RB1,AURKB,9212,barasertib,CHEMBL415049,Aurora-B kinase inhibitor,3,912,common-essential,30373918,10.1158/2159-8290.CD-18-0389,SCLC RB1-loss (Oser 2019),2026-07-05,"RB1 loss -> AURKB hyperdependence; selectivity is a differential on a pan-essential background"
+RB1,AURKA,6790,LY3295668,,Aurora-A kinase inhibitor,,,,30373917,10.1158/2159-8290.CD-18-0469,SCLC/TNBC RB1-loss (Gong 2019),2026-07-05,"RB1 loss -> AURKA synthetic lethal; AURKA inhibitor selective vs AURKB"
+RB1,PLK1,5347,,,Polo-like kinase 1 inhibitor,,929,common-essential,,,,2026-07-05,"pan-essential per ORCS; report RB1-vs-WT differential, not raw dependency"
+RB1,CHEK1,1111,,,CHK1 inhibitor,,928,common-essential,,,,2026-07-05,"pan-essential per ORCS; same differential caveat"
+RB1,PARP1,142,olaparib,,PARP inhibitor,,67,context-selective,,,,2026-07-05,"cleanest context-selective example among RB1 dependencies"
+PTEN,AKT1,207,MK-2206,CHEMBL1079175,AKT inhibitor (single MoA),2,,,,,PTEN-deficient PI3K/AKT dependence,2026-07-05,"clean single-target agent; ChEMBL confirms single MoA"
+TP53,KIF11,3832,ispinesib,,Kinesin-5 (KIF11) inhibitor,,862,common-essential,,,,2026-07-05,"KIF11 pan-essential per ORCS (~862 screens); TP53-selectivity needs common-essential baseline"
+NA,RBM39,9584,indisulam,CHEMBL77517,RBM39/DCAF15 molecular-glue degrader (no clean ChEMBL MoA),,,,28302793,10.1126/science.aal3755,multi-mechanism aryl sulfonamide,2026-07-05,"C10 example: multi-mechanism/off-target; ChEMBL has no annotated MoA; mechanism from Han 2017 Science"

@@ -7,7 +7,7 @@ C5,R1.2;R2.3,Missing data / IC50 52%,high,resolved,docs/METHODS_CANONICAL.md,IC5
 C6,R1.4,Statistical rigor,high,done,data/derived/psprime_by_genotype.csv,Bootstrap CIs; n-tables; FDR run not gated
 C7,R2.2,Confounders,high,deferred-limitation,docs/METHODS_CANONICAL.md,Documented Study limitation; future multivariable work
 C8,R1.5;R2.1,Benchmark vs AUC/EC50,high,done,data/derived/metric_correlations.csv,Correlation analysis; AUC collapses AUC>1
-C9,R1.7,Independent validation,high,done,data/derived/rnai_validation.csv; concordance_summary.csv,DEMETER2 RNAi + 36-compound concordance + RAS/MEK
+C9,R1.7,Independent validation,high,done,data/derived/rnai_validation.csv; concordance_summary.csv; data/reference/validated_sl_reference.csv,"DEMETER2 RNAi + 36-compound concordance + RAS/MEK; grounded 2026-07-05 (PubMed/ORCS/ChEMBL): Oser AURKB / Gong AURKA print 2019 confirmed; PLK1/AURKB/CHEK1 common-essential -> report RB1-vs-WT differential, lead with PARP1 (context-selective)"
 C10,R1.6,Overstated claims,med,in-progress,manuscript,Candidate-level language; Study limitations
 C11,R1.8;R2.4,Genotype definition,high,done,config/definitions.yaml; data/derived/genotype_counts.csv,AF-sum>0.95; TP53 DN = limitation
 C12,R1.9;R2.7,Figure errors,med,in-progress,src/figures.py,Fig 1/4/5 fixes; captions
