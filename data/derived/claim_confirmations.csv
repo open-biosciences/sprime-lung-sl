@@ -1,0 +1,13 @@
+query,item,observed,reference,status
+Q1_cohort,7 named RB1-mut lung lines,"7/7 resolved, all_lung=True",paper names 7 RB1-mut lung lines,CONFIRMED
+Q2_common_essential,AURKA,selective,R1.7 grounding (BioGRID ORCS),OBSERVED
+Q2_common_essential,AURKB,selective,R1.7 grounding (BioGRID ORCS),OBSERVED
+Q2_common_essential,PLK1,common-essential,R1.7 grounding (BioGRID ORCS),OBSERVED
+Q2_common_essential,CHEK1,common-essential,R1.7 grounding (BioGRID ORCS),OBSERVED
+Q2_common_essential,PARP1,selective,R1.7 grounding (BioGRID ORCS),OBSERVED
+Q3_crispr_differential,AURKA,mut=-1.256 wt=-1.317 diff=+0.061,R1.7 RB1-mut-more-dependent claim,no SL-direction differential
+Q3_crispr_differential,AURKB,mut=-2.376 wt=-2.228 diff=-0.148,R1.7 RB1-mut-more-dependent claim,mut more dependent
+Q3_crispr_differential,PLK1,mut=-2.861 wt=-2.760 diff=-0.101,R1.7 RB1-mut-more-dependent claim,mut more dependent
+Q3_crispr_differential,CHEK1,mut=-1.784 wt=-1.790 diff=+0.007,R1.7 RB1-mut-more-dependent claim,no SL-direction differential
+Q3_crispr_differential,PARP1,mut=-0.174 wt=-0.160 diff=-0.015,R1.7 RB1-mut-more-dependent claim,mut more dependent
+Q4_worked_example,doxorubicin pS' RB1-mut,not in file,paper Example 3 = 8.15,UNAVAILABLE
