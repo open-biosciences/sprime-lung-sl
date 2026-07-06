@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+title: "sprime-lung-sl: reproducible S′ synthetic-lethality analysis (lung)"
+message: "If you use this analysis, please cite the manuscript and this repository."
+authors:
+  - family-names: Zamora
+    given-names: Paul O.
+  - family-names: Zamora
+    given-names: Matthew E.
+  - name: "Open Biosciences / MoCo Makers"
+license: MIT
+repository-code: "https://github.com/open-biosciences/sprime-lung-sl"

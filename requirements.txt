@@ -1,0 +1,7 @@
+numpy>=1.21
+pandas>=1.4
+scipy>=1.8
+matplotlib>=3.5
+pyyaml>=6.0
+pytest>=7
+# sprime  (install from ../sprime or the open-biosciences/sprime repo: pip install -e ../sprime)

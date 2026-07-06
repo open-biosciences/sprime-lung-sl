@@ -1,0 +1,45 @@
+# ============================================================================
+# definitions.yaml — THE single source of truth for conventions & thresholds.
+# Any change here propagates through run_pipeline.py to every derived value.
+# ============================================================================
+version: "0.1.0-draft"
+last_updated: "2026-07-05"
+
+s_prime:
+  formula: "asinh( (E_max / EC50) * C_ref )"
+  c_ref_uM: 1.0
+  # ⚠ OPEN — must be reconciled against the sprime reference implementation.
+  # Cohort S′ values (~7-10) imply 'percent'. Locking this fixes the ±2/±4 threshold scale.
+  emax_convention: "percent"        # one of: percent (0-100) | fraction (0-1)
+  emax_definition: "upper_asymptote - lower_asymptote (from PRISM 4PL fit)"
+
+thresholds:
+  # Authors' §2.6 Class A rule (v3):
+  synthetic_lethal:
+    wt_ps_gt: 0
+    mut_ps_gt: 0
+    delta_ps_le: -2
+  high_stringency_delta_ps_le: -4
+  # fold-change anchors (for interpretation only)
+  fold_change_anchors: { "pS_4": "~27x", "pS_2": "~3.6x", "pS_1": "~1.2x", "pS_0": "baseline" }
+
+genotype:
+  rule: "DepMap Damaging-Mutations matrix; per gene x line value in {0,1,2}"
+  damaging_af_sum_gt_for_mutant: 0.95   # sum of damaging-allele frequencies > 0.95 -> value 2
+  wild_type_value: 0
+  mutant_value: 2
+  excluded_value: 1                      # 1-of-2 (ambiguous) excluded
+  unit_of_analysis: "single gene"        # per tissue + gene filter
+  genes: [PTEN, CDKN2A, RB1, TP53]
+
+data_sources:
+  prism: { release: "PRISM Repurposing 19Q4", file: "secondary-screen-dose-response-curve-parameters.csv (SSDRC)" }
+  mutations: { release: "DepMap Public 24Q2", file: "OmicsSomaticMutationsMatrixDamaging.csv" }
+  rnai_validation: { source: "DEMETER2" }
+  screens: { base: "HTS002", overlay: "MTS010", quality_flag: "passed_str_profiling == TRUE" }
+
+statistics:
+  bootstrap_iterations: 1000
+  ci: 0.95
+  fdr: { method: "benjamini-hochberg", performed: true, gated: false,
+         note: "run for transparency; not used to gate hits (over-conservative under high-dim testing)" }

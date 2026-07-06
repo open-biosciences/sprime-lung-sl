@@ -1,0 +1,20 @@
+concern_id,reviewer_refs,theme,severity,status,evidence_artifact,notes
+C1,R1.1,S′ dimensionality & E_max convention,critical,OPEN,config/definitions.yaml; sprime/tests,"E_max percent-vs-fraction not locked; blocks S′ scale + thresholds"
+C2,R1.1;R2.1,Metric/threshold justification,high,in-progress,docs/METHODS_CANONICAL.md,MM/Hill precedent; thresholds pinned
+C3,R2.1,Preprint dependence,high,in-progress,DATA_AVAILABILITY.md,Cite Cancers 2023 antecedent; DOI deposit
+C4,R1.3,Threshold consistency,high,resolved-pending-recompute,config/definitions.yaml,Rule WT>0/mut>0/ΔpS′≤−2; recompute counts; reconcile −1.9/−4.7 medians
+C5,R1.2;R2.3,Missing data / IC50 52%,high,resolved,docs/METHODS_CANONICAL.md,IC50 NA vs EC50; inherit PRISM QC; exclude no impute
+C6,R1.4,Statistical rigor,high,done,data/derived/psprime_by_genotype.csv,Bootstrap CIs; n-tables; FDR run not gated
+C7,R2.2,Confounders,high,deferred-limitation,docs/METHODS_CANONICAL.md,Documented Study limitation; future multivariable work
+C8,R1.5;R2.1,Benchmark vs AUC/EC50,high,done,data/derived/metric_correlations.csv,Correlation analysis; AUC collapses AUC>1
+C9,R1.7,Independent validation,high,done,data/derived/rnai_validation.csv; concordance_summary.csv,DEMETER2 RNAi + 36-compound concordance + RAS/MEK
+C10,R1.6,Overstated claims,med,in-progress,manuscript,Candidate-level language; Study limitations
+C11,R1.8;R2.4,Genotype definition,high,done,config/definitions.yaml; data/derived/genotype_counts.csv,AF-sum>0.95; TP53 DN = limitation
+C12,R1.9;R2.7,Figure errors,med,in-progress,src/figures.py,Fig 1/4/5 fixes; captions
+C13,R1.11,Supp tables + data/code release,med,in-progress,this repo,Standardize headers; Zenodo DOI
+C14,R1.10,Results organization,med,in-progress,manuscript,Ranked tables + move lists to supp
+C15,R1.4;R2.8,Sample sizes,med,done,data/derived/genotype_counts.csv,Per-genotype n (RB1 7/75)
+C16,R2(intro),Introduction/literature,med,in-progress,manuscript,SL literature + antecedent
+C17,R1.12,English/proofreading,low,in-progress,manuscript,Copyedit; indium->indisulam
+C18,R2(minor),Abstract,low,in-progress,manuscript,Rewrite
+C19,R2(minor),Definitional table,low,done,docs/METHODS_CANONICAL.md,Table 1

@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.DS_Store
+# large raw data — keep out of git, document in DATA_AVAILABILITY.md
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+# generated figures optional to commit
+figures/*
+!figures/.gitkeep
