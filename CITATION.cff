@@ -4,6 +4,10 @@ message: "If you use this analysis, please cite the manuscript and this reposito
 authors:
   - family-names: Zamora
     given-names: Paul O.
+  - family-names: Branson
+    given-names: Don
+  - family-names: Santamaria
+    given-names: Ulisses
   - family-names: Zamora
     given-names: Matthew E.
   - name: "Open Biosciences / MoCo Makers"

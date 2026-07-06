@@ -8,8 +8,9 @@ last_updated: "2026-07-05"
 s_prime:
   formula: "asinh( (E_max / EC50) * C_ref )"
   c_ref_uM: 1.0
-  # ⚠ OPEN — must be reconciled against the sprime reference implementation.
-  # Cohort S′ values (~7-10) imply 'percent'. Locking this fixes the ±2/±4 threshold scale.
+  # Pipeline computes S′ on the PERCENT E_max scale (0-100); cohort S′ ~7-10 is consistent with this.
+  # ⚠ OPEN (concerns.csv C1): confirm the percent scale matches the reference SPrime implementation
+  # before tagging a release. Locking this fixes the absolute S′ scale and the ±2/±4 thresholds.
   emax_convention: "percent"        # one of: percent (0-100) | fraction (0-1)
   emax_definition: "upper_asymptote - lower_asymptote (from PRISM 4PL fit)"
 
